@@ -30,3 +30,11 @@ TC-N-03 Passed
 TC-N-04 Passed
 TC-N-05 Passed
 TC-N-06 Failed
+
+TC-API-01 Passed
+TC-API-02 Passed
+TC-API-03 Passed
+TC-API-04 Passed
+TC-API-05 Passed
+TC-API-06 Passed
+

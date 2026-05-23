@@ -1,0 +1,20 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Temp files
+*.tmp
+*.log
+*.bak
+
+# Secrets
+.env
+*.pem
+*.key
+*.p12
