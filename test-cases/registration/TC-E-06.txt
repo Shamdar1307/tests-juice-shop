@@ -1,0 +1,16 @@
+TC-E-06: Email без символа @
+
+Предусловия:
+1. Развернут стенд OWASP Juice Shop
+2. Пользователь находится на странице регистрации /#/register
+
+Шаги:
+1. В поле "Email" ввести: testmail.ru
+2. В поле "Password" ввести: Test@123
+3. В поле "Repeat Password" ввести: Test@123
+4. В выпадающем списке "Security Question" выбрать любой вопрос
+5. В поле "Answer" ввести: test
+6. Нажать кнопку "Register"
+
+Ожидаемый результат:
+Кнопка "Register" неактивна. Поле Email подсвечено с сообщением "Email address is not valid."

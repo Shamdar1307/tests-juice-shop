@@ -1,0 +1,54 @@
+ID: BUG-002 | Статус: Открыт
+
+Priority: low
+Severity: minor
+
+Связанный тест-кейс: TC-E-17
+
+Заголовок: Форма регистрации приняла email без домена верхнего уровня
+
+Шаги воспроизведения:
+1. В поле "Email" ввести: test@mail
+2. В поле "Password" ввести: Test@123
+3. В поле "Repeat Password" ввести: Test@123
+4. В выпадающем списке "Security Question" выбрать любой вопрос
+5. В поле "Answer" ввести: test
+6. Нажать кнопку "Register"
+
+Ожидаемый результат:
+Кнопка "Register" неактивна. Поле Email подсвечено с сообщением "Email address is not valid."
+
+Фактический результат: Система приняла email без домена верхнего уровня и выдала пользователю сообщение "Registration completed successfully. You can now log in."
+
+Окружение: ПК: Lenovo, ОС: Windows 11 Version 25H2 (Build 26200.8457), Browser: Яндекс.Браузер 26.4.0.0 (WebKit 537.36), Стенд OWASP juice-shop v20.0.0.
+
+Вложение:
+DevTools:
+
+Headers:
+	Request URL: http://localhost:3000/api/Users/
+	Request Method: POST
+	Status Code: 201 Created
+	Remote Address: 127.0.0.1:3000
+	Referrer Policy: strict-origin-when-cross-origin
+
+Response:
+{
+    "status": "success",
+    "data": {
+        "username": "",
+        "role": "customer",
+        "deluxeToken": "",
+        "lastLoginIp": "0.0.0.0",
+        "profileImage": "/assets/public/images/uploads/default.svg",
+        "isActive": true,
+        "id": 28,
+        "email": "test@mail",
+        "updatedAt": "2026-05-22T11:51:09.267Z",
+        "createdAt": "2026-05-22T11:51:09.267Z",
+        "deletedAt": null
+    }
+}
+
+Автор: Шамшурин Илья Алексеевич, тестировщик.
+Исполнитель: ФИО, разработчик.

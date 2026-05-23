@@ -1,0 +1,42 @@
+ID: BUG-003 | Статус: Открыт
+
+Priority: low
+Severity: Major
+
+Связанный тест-кейс: TC-N-06
+
+Заголовок: Пользователь может зарегистрироваться с измененным паролем в поле "Password"после введения пароля в поле "Repeat Password"
+
+Шаги воспроизведения:
+1. В поле "Email" ввести: test@mail.ru
+2. В поле "Password" ввести: Test@123
+3. В поле "Repeat Password" ввести: Test@123
+4. В выпадающем списке "Security Question" выбрать любой вопрос
+5. В поле "Answer" ввести: test
+6. Изменить поле "Password" на Test@1234 (пароли перестали совпадать)
+7. Нажать кнопку "Register"
+
+Ожидаемый результат:
+Кнопка "Register" должна стать неактивной. Под полем Repeat Password должно появиться сообщение "Passwords do not match".
+
+Фактический результат: 
+Кнопка "Register" остается активной. При нажатии происходит регистрация с несовпадающими паролями.
+
+
+Окружение: ПК: Lenovo, ОС: Windows 11 Version 25H2 (Build 26200.8457), Browser: Яндекс.Браузер 26.4.0.0 (WebKit 537.36), Стенд OWASP juice-shop v20.0.0.
+
+Вложение:
+DevTools:
+
+Headers:
+	Request URL: http://localhost:3000/api/Users/
+	Request Method: POST
+	Status Code: 201 Created
+	Remote Address: 127.0.0.1:3000
+	Referrer Policy: strict-origin-when-cross-origin
+
+Payload:
+{"email":"test@mail.ru","password":"Test@1234","passwordRepeat":"Test@123","securityQuestion":{"id":1,"question":"Your eldest siblings middle name?","createdAt":"2026-05-22T12:48:12.669Z","updatedAt":"2026-05-22T12:48:12.669Z"},"securityAnswer":"test"}
+
+Автор: Шамшурин Илья Алексеевич, тестировщик.
+Исполнитель: ФИО, разработчик.
