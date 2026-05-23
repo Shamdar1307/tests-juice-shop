@@ -1,0 +1,21 @@
+TC-API-01: Регистрация пользователя через API
+
+Предусловия:
+1. Развернут стенд OWASP Juice Shop (http://localhost:3000)
+2. Postman настроен с переменной окружения {{host}}
+3. Переменная {{email}} генерируется автоматически (user_{timestamp}@test.com)
+
+Шаги:
+1. Отправить POST запрос на {{host}}/api/Users/
+2. Body (raw JSON):
+   {
+     "email": "{{email}}",
+     "password": "Test123!",
+     "passwordRepeat": "Test123!",
+     "securityAnswer": "test"
+   }
+
+Ожидаемый результат:
+- Статус код: 201 Created
+- В ответе есть данные созданного пользователя
+- Email в ответе совпадает с отправленным

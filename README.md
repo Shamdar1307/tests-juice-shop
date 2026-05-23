@@ -15,9 +15,7 @@
 
 ## Результаты
 
-| Всего тест-кейсов | 30 |
-| Пройдено          | 27 |
-| Провалено         | 03 |
+| Всего тест-кейсов : 30 | Пройдено : 27 | Дефекты : 03 |
 
   **Пройденные проверки**  
 - Email: валидный, с точкой/плюсом/спецсимволами, заглавные буквы  
@@ -31,10 +29,20 @@
 
 ## Ссылки
 
-- [Google Sheets (тест-кейсы, баги, дашборд)](https://docs.google.com/spreadsheets/d/1_ptnI1aRQtayL6JIFpdTAUxo1SjAMcxWN9nBkuZ9ogo/edit?usp=sharing)
-- Стенд: OWASP Juice Shop v20.0.0 (Docker) https://github.com/juice-shop/juice-shop
+- [Google Sheets (чек-лист, тест-кейсы, баг-репорты)](https://docs.google.com/spreadsheets/d/1_ptnI1aRQtayL6JIFpdTAUxo1SjAMcxWN9nBkuZ9ogo/edit?usp=sharing)
+- Стенд: [OWASP Juice Shop](https://github.com/juice-shop/juice-shop) v20.0.0 (Docker)
 - Окружение: Windows 11, Яндекс.Браузер
 
 ## Запуск стенда
-docker pull bkimminich/juice-shop
-docker run --rm -p 127.0.0.1:3000:3000 bkimminich/juice-shop
+- docker pull bkimminich/juice-shop
+- docker run --rm -p 127.0.0.1:3000:3000 bkimminich/juice-shop
+
+## Postman Smoke-тест
+
+- Коллекция Postman для API тестирования Juice Shop. tools/Postman/OWASP JuiceShop.postman_collection.json
+- Окружения Postman tools/Postman/Smoke-user-environment.postman_environment.json
+- Сценарий: Регистрация → Логин → Добавление в корзину → Оформление → История заказов
+- Результат: 6/6 тестов пройдено
+- Запуск: 1) docker run --rm -p 127.0.0.1:3000:3000 bkimminich/juice-shop
+	  2) Import коллекции в Postman
+	  3) Run (Smoke-user)
